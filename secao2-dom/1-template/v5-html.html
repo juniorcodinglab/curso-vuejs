@@ -1,0 +1,42 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+
+    <p v-once>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
+    <a v-bind:href="link">Google</a>
+
+    <hr>
+
+    <div>{{linkHtml}}</div>
+    <div v-html="linkHtml"></div>
+
+
+
+</div>
+
+<script>
+    // Interpolação
+    setTimeout(function () {  
+        new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Usando VueJS!',
+                link: 'https://google.com.br',
+                linkHtml: '<a href="https://google.com.br">Google</a>',
+            },
+            methods: {
+                saudacao: function () {
+                    this.titulo = 'Usando Novamente o VueJs!!'
+                    return this.titulo
+
+                } 
+            }
+    })
+    },500)
+    
+    /**
+     * Não pode ter methods:{} com o mesmo nome da data:{}
+     */
+    
+</script>

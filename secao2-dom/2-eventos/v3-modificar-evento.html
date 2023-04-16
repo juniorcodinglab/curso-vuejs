@@ -1,0 +1,56 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ contador }}</p>
+    <button v-on:click="somar">Somar de 1</button>
+    <button v-on:click="somarQntd(5)">Somar de 5</button>
+    <button v-on:click="somarQntd(5, $event)">Somar de 5 passando o evento</button>
+
+    <hr>
+
+    <div v-on:mousemove="atualizarXY">
+        <h3>Passe o mouse aqui!</h3>
+        <ul>
+            <li>X:{{ x }}</li>
+            <li>Y:{{ y }}</li>
+        </ul>
+
+        <button v-on:mousemove.stop="">Pare Aqui</button>
+    </div>
+    
+    <hr>
+
+    <a v-on:click.prevent="" href="https://google.com.br">Link com Prevent</a>
+</div>
+
+<script>
+    // Interpolação
+    setTimeout(function () {  
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0,
+                x: 0,
+                y: 0
+            },
+            methods: {
+                somar(event) {
+                    console.log(event)
+                    this.contador++
+                },
+                somarQntd(qntd, e) {
+                    console.log(e)
+                    this.contador += qntd
+                },
+                atualizarXY(e) {
+                    this.x = e.clientX
+                    this.y = e.clientY
+                },
+                parar(e) {
+                    e.stopPropagation();
+                }
+            },
+    })
+    },500)
+    
+</script>

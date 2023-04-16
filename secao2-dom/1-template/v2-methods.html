@@ -1,0 +1,32 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
+    <p>{{ saudacao2() }}</p>
+</div>
+
+<script>
+    // Interpolação
+    setTimeout(function () {  
+        new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Usando VueJS!'
+            },
+            methods: {
+                saudacao: function () {
+                    return 'Boa Semana!'
+                },
+                saudacao2: function () {
+                    return this.titulo
+                }
+            }
+    })
+    },500)
+    
+    /**
+     * Não pode ter methods:{} com o mesmo nome da data:{}
+     */
+    
+</script>

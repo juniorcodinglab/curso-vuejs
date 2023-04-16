@@ -1,0 +1,53 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <button v-on:click="aumentar">Aumentar 1º Contador</button>
+    <button v-on:click="aumentarComputed">Aumentar 2º Contador</button>
+    <button v-on:click="diminuir">Diminuir</button>
+    <p>Contador: {{ contador }} | {{ contador2 }}</p>
+    <!-- Chama toda vez -->
+    <p>Resultado Por Função: {{ resultado() }}</p>
+    <!-- Chama apenas quando alguma propriedade dentro dela está relacionada -->
+    <p>Resultado Por (computed): {{ resultadoComputed }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            contador2: 0
+        },
+        computed: {
+            resultadoComputed() {
+                return this.contador2 >= 5 ?
+                    'Maior ou igual a 5' : "Menor que 5"
+            }
+        },
+        // Defina qual metodo | variavel que vc quer monitorar
+        watch: {
+            contador(novo, antigo) {
+                setTimeout(() => {
+                    this.contador = 0
+                }, 2000
+                )
+                console.log('novo:' + novo, 'antigo:' + antigo)
+            }
+        },
+        methods: {
+            aumentar() {
+                this.contador++
+            },
+            aumentarComputed() {
+                this.contador2++
+            },
+            diminuir() {
+                this.contador--
+            },
+            resultado() {
+                return this.contador >= 5 ?
+                    'Maior ou igual a 5' : "Menor que 5"
+            }
+        },
+    })
+</script>

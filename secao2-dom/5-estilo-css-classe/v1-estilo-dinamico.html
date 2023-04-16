@@ -1,0 +1,47 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<style>
+    #app {
+        display: flex;
+        justify-content: space-around;
+    }
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+    .c1 {
+        background-color: red;
+    }
+    .c2 {
+        background-color: green;
+    }
+    .c3 {
+        background-color: blue;
+    }
+</style>
+
+<div id="app">
+    <!-- Adicionar C1 se True | False -->
+    <div class="demo" :class="{c1: aplicarC, c2: !aplicarC}"
+        @click="aplicarC = !aplicarC"
+    ></div>
+    <div class="demo" :class="estilo1" @click="aplicarC = !aplicarC"></div>
+    <div class="demo"></div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            aplicarC: false
+        }, 
+        computed: {
+            estilo1() {
+                return {
+                    c1: this.aplicarC,
+                    c2: !this.aplicarC,
+                }
+            }
+        }
+    })
+</script>
