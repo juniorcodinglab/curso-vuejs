@@ -5,7 +5,7 @@ new Vue({
 		startEffect: false,
 		classe3: '',
 		style5: '',
-		progressWidth: 'width: 0%'
+		width: '0'
 	},
 	methods: {
 		iniciarEfeito() {
@@ -17,18 +17,14 @@ new Vue({
 		iniciarProgresso() {
 			let time = 0
 			const meuInterval = setInterval(() => {
+				time += 5
+				this.width = `${time}%`
 
-				this.progressWidth = 'width: ' + (time * 5) *  + "%";
-
-				time++
+				if (time === 100)
+					clearInterval(meuInterval);
 
 				console.log(time)
-			}, 500);
-
-			setInterval(() => {
-				if (time >= 20)
-					clearInterval(meuInterval);
-			}, 500);
+			}, 200);
 		}
 	},
 	computed: {
