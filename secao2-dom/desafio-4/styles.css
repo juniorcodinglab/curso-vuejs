@@ -13,3 +13,28 @@
 	background-color: gray;
 	width: 50px !important;
 }
+
+/* 02 */
+
+.text-decoration-underline {
+	text-decoration: underline;
+}
+
+.color-red {
+	color: darkred;
+}
+
+/* 06  */
+
+.progress-bar {
+	width: 300px;
+	min-height: 20px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+.progress-bar span {
+	height: 20px;
+	display: block;
+	background-color: darkred;
+}

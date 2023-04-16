@@ -6,23 +6,23 @@
     O efeito deve alternadamente trocar as classes "destaque" e
     "encolher" para cada chamada de setInteval. Use a div abaixo
 	com id "efeito" para associar as classes CSS. -->
-	<h2>#01</h2>
+	<h2>#01 - [OK]</h2>
 	<div>
 		<button @click="iniciarEfeito">Iniciar Efeito</button>
-		<div id="efeito"></div>
+		<div id="efeito" :class="efeito1"></div>
 	</div>
 	
 	<!-- 2) Crie duas classes CSS e associe a div usando a
 		sintaxe de array -->
-	<h2>#02</h2>
-	<div>Estou sem classe CSS :(</div>
+	<h2>#02 - [OK]</h2>
+	<div :class="['text-decoration-underline','color-red']">Agora estou com classe :}</div>
 
 	<!-- 3) Aplique na div abaixo a classe informada pelo usuário
 		(crie classe CSS de exemplo). -->
-	<h2>#03</h2>
+	<h2>#03 - [OK]</h2>
 	<div>
-		<input type="text">
-		<div></div>
+		<input type="text" v-model="classe3">
+		<div id="efeito" :class="[classe3]">TEXTO</div>
 	</div>
 
 	<!-- 4) Aplique na div abaixo a classe informada pelo usuário e
@@ -36,10 +36,10 @@
 
 	<!-- 5) Repita 3) mas utilizando estilos ao invés de classes CSS.
     Associe os estilos a div abaixo  -->
-	<h2>#05</h2>
+	<h2>#05 - [OK]</h2>
 	<div>
-		<input type="text">
-		<div></div>
+		<input type="text" v-model="style5">
+		<div id="efeito" :style="style5">TEXTO</div>
 	</div>
 
 	<!-- 6) Crie uma barra de progresso simples com setInterval 
@@ -47,7 +47,9 @@
 	<h2>#06</h2>
 	<div>
 		<button @click="iniciarProgresso">Iniciar</button>
-		<div></div>
+		<div class="progress-bar">
+			<span :style="{progressWidth}"></span>
+		</div>
 	</div>
 </div>
 <script src="app.js"></script>
