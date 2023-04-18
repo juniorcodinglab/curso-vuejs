@@ -1,0 +1,27 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <div id="app1">
+        <h1>{{titulo1}}</h1>
+    </div>
+    <hr>
+    <div id="app2">
+        <h1>{{titulo2}}</h1>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app1',
+        data: {
+            titulo1: 'Teste 1'
+        }, 
+    })
+
+    new Vue({
+        el: '#app2',
+        data: {
+            titulo2: 'Teste 2'
+        }, 
+    })
+</script>
